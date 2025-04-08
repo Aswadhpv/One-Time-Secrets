@@ -9,7 +9,7 @@ services:
       - POSTGRES_DB=secrets_db
       - POSTGRES_USER=secrets_user
       - POSTGRES_PASSWORD=secrets_password
-      - ENCRYPTION_KEY=1QeygjQTmmug0ovO1M_TbB1SfzMYyZordHFTfABM2OA=  # Replace with a generated key.
+      - ENCRYPTION_KEY=hSlLIngbbo_cfcq5fwzXTTHgA3LZn_kRuOXRiWsMMnM=   # Replace with your key (python -c "from cryptography.fernet import Fernet; print(Fernet.generate_key().decode())"
     depends_on:
       - postgres
 
@@ -19,8 +19,8 @@ services:
       POSTGRES_DB: secrets_db
       POSTGRES_USER: secrets_user
       POSTGRES_PASSWORD: secrets_password
-    ports: # <-- Add this section
-        - "5432:5432"
+    ports:
+      - "5432:5432"
     volumes:
       - postgres_data:/var/lib/postgresql/data
 

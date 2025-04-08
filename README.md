@@ -1,4 +1,4 @@
-# One-time Secrets Service
+# One-Time Secrets Service
 
 This repository contains a FastAPI-based service that allows storing confidential secrets which can be retrieved only once. After the first retrieval—or upon deletion—the secret becomes unavailable. All secrets are stored in an encrypted form and cached in memory with a minimum TTL of 5 minutes. Actions (create, retrieve, delete) are logged in a PostgreSQL database.
 
@@ -36,7 +36,7 @@ This repository contains a FastAPI-based service that allows storing confidentia
 1. **Clone the Repository:**
 
    ```bash
-   git clone https://github.com/Aswadhpv/one-time-secrets.git
+   git clone https://github.com/Aswadhpv/One-Time-Secrets.git
    cd one-time-secrets
    
 2. **To access the swagger you can go to the link:**
