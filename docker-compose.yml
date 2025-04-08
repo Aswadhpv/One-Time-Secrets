@@ -1,0 +1,28 @@
+services:
+  app:
+    build: .
+    ports:
+      - "8000:8000"
+    environment:
+      - POSTGRES_HOST=postgres
+      - POSTGRES_PORT=5432
+      - POSTGRES_DB=secrets_db
+      - POSTGRES_USER=secrets_user
+      - POSTGRES_PASSWORD=secrets_password
+      - ENCRYPTION_KEY=1QeygjQTmmug0ovO1M_TbB1SfzMYyZordHFTfABM2OA=  # Replace with a generated key.
+    depends_on:
+      - postgres
+
+  postgres:
+    image: postgres:13
+    environment:
+      POSTGRES_DB: secrets_db
+      POSTGRES_USER: secrets_user
+      POSTGRES_PASSWORD: secrets_password
+    ports: # <-- Add this section
+        - "5432:5432"
+    volumes:
+      - postgres_data:/var/lib/postgresql/data
+
+volumes:
+  postgres_data:
